@@ -197,6 +197,7 @@
         }
     </style>
 
+    <script src="{{ url_for('static', filename='vendors/staticResponse.js') }}"></script>
     <script src="{{ url_for('static', filename='vendors/charts.js') }}"></script>
 
     <script>
@@ -492,8 +493,8 @@
                                         }
                                     }
                                 });
-
-                                fetchAll(output['authKey'], options, twitterChart)
+                                fetchStatic(options, twitterChart);
+                                //fetchAll(output['authKey'], options, twitterChart)
                             }
 
                             $('#jsonwrapper').prepend('<video id=' + 'outputVideo '+ 'controls><source src=' + vidsrcString+ ' type=' + mt + '></video>').show();

@@ -104,6 +104,20 @@ let getAllPages = async function(next='none', options){
   }
 };
 
+let fetchStatic = function(options, chart) {
+  let fd = options['fromDate'];
+  let td = options['toDate'];
+  let fromDate = new Date(fd.substring(0,4)
+    +'-'+fd.substring(4,6)+'-'+fd.substring(6,8)+'T'
+    +fd.substring(8,10)+':'+fd.substring(10, 12) + ':00Z');
+
+  let toDate = new Date(td.substring(0,4)
+    +'-'+td.substring(4,6)+'-'+td.substring(6,8)+'T'
+    +td.substring(8,10)+':'+td.substring(10, 12) + ':00Z');
+
+  setGraph(oneMile2, chart, fromDate, toDate);
+}
+
 let fetchAll = async function(authkey, options, chart){
 
   await getToken(authkey);

@@ -209,7 +209,7 @@ def detect(
             else:
                 segmented_images['twitter'] = False
 
-            authkeystr = os.environ['TWITTER_CONSUMER_API_KEY']+':'+os.environ['HFeSzdPOjt8d0IX3aNac5KCfOINIELlUoPUjywPHdHuDJ0KRCY']
+            authkeystr = os.environ['TWITTER_CONSUMER_API_KEY']+':'+os.environ['TWITTER_CONSUMER_API_SECRET']
 
             encodedBytes = base64.b64encode(authkeystr.encode("utf-8"))
             encodedStr = str(encodedBytes, "utf-8")

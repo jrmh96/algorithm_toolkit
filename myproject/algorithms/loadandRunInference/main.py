@@ -33,7 +33,8 @@ class Main(Algorithm):
             twitterKeys = ['fromDate', 'toDate', 'lon', 'lat']
 
             for i in twitterKeys:
-                twitterObj[i] = paramJsonObj[i]
+                if i in paramJsonObj:
+                    twitterObj[i] = paramJsonObj[i]
 
             class_of_interest = paramJsonObj['class_of_interest'] # some image of interest to track
 

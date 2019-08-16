@@ -252,7 +252,7 @@
             "help_text": "",
             "max_value": "",
             "min_value": "",
-            "name": "image_file_path",
+            "name": "file_path",
             "parameter_choices": "",
             "required": true,
             "sort_order": 3
