@@ -21,7 +21,7 @@ COPY environ.yml /bin/
 RUN conda env update -f /bin/environ.yml -n base
 
 # Install revised atk project
-RUN pip install git+https://github.com/jrmh96/algorithm_toolkit.git@master
+RUN pip install git+https://github.com/jrmh96/algorithm_toolkit.git@staticFetch
 
 # clean up
 RUN rm Miniconda3-latest-Linux-x86_64.sh
