@@ -35,7 +35,7 @@ class Main(Algorithm):
             for i in twitterKeys:
                 twitterObj[i] = paramJsonObj[i]
 
-            img_of_interest = 'car' # some image of interest to track - need to add to config.json
+            class_of_interest = paramJsonObj['class_of_interest'] # some image of interest to track
 
             with torch.no_grad(): # no gradients needed bc no backprop needed
                 image_data_obj = detect(
@@ -51,7 +51,7 @@ class Main(Algorithm):
                     save_txt,
                     save_images,
                     backend,
-                    img_of_interest,
+                    class_of_interest,
                     includetwittergraph,
                     twitterObj
                 )

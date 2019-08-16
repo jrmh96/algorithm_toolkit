@@ -1,11 +1,10 @@
 from assets.models import *
 from assets.utils import *
 from assets.datasets import *
-from atkEnv.keys import * # secret keys stored here, ignored in git commits, *change this to .env file secret keys
 
 from sys import platform
 
-import time, base64
+import time, base64, os
 
 def detect(
         cfg,
@@ -210,7 +209,7 @@ def detect(
             else:
                 segmented_images['twitter'] = False
 
-            authkeystr = cons_api_key+':'+cons_api_secret
+            authkeystr = os.environ['TWITTER_CONSUMER_API_KEY']+':'+os.environ['HFeSzdPOjt8d0IX3aNac5KCfOINIELlUoPUjywPHdHuDJ0KRCY']
 
             encodedBytes = base64.b64encode(authkeystr.encode("utf-8"))
             encodedStr = str(encodedBytes, "utf-8")

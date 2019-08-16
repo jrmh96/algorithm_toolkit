@@ -271,6 +271,21 @@
             "parameter_choices": "True, False",
             "required": true,
             "sort_order": 12
+        },
+        {
+            "custom_validation": "",
+            "data_type": "string",
+            "default_value": "",
+            "description": "Track instances of this class across the video. Results will be output as graph on the chain output screen",
+            "display_name": "Class of Interest",
+            "field_type": "select",
+            "help_text": "",
+            "max_value": "",
+            "min_value": "",
+            "name": "class_of_interest",
+            "parameter_choices": "car, person, airplane, bicycle, boat, train, truck",
+            "required": true,
+            "sort_order": 17
         }
     ],
     "version": "0.0.1"

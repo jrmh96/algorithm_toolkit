@@ -12,6 +12,7 @@ data_cfg_path|Set data config file path: *.data|Yes
 weights_file_path|Set file path for pretrained weights: *.weights|Yes
 image_file_path|Set image/video path|Yes
 twitter|Include Twitter graph in output. If checked, please include fromdate, todate and lon/lat fields|Yes
+class_of_interest|Track instances of this class across the video. Results will be output as graph on the chain output screen|Yes
 img_size|Image resized to img_size x img_size during inference. If unsure, default value generally works well|
 fourcc|Four character code for output video encoding|
 conf_thresh|Confidence threshold for image prediction. Predictions with probabilities below this threshold are ignored.|

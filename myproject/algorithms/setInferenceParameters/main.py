@@ -21,6 +21,7 @@ class Main(Algorithm):
             paramJsonObject['save_images'] = params['save_image'] == 'True'
 
             paramJsonObject['twitter'] = params['twitter'] == 'True'
+            paramJsonObject['class_of_interest'] = params['class_of_interest'] if 'class_of_interest' in params else 'person'
 
             cl.add_to_metadata('jsonObject', paramJsonObject)
         except KeyError as e:
