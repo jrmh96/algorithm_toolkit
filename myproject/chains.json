@@ -100,5 +100,33 @@
                 }
             }
         }
+    ],
+    "docker_demo": [
+        {
+            "algorithm": "setInferenceParameters_docker",
+            "parameter_source": "user"
+        },
+        {
+            "algorithm": "loadandRunInference",
+            "parameters": {
+                "parametersJSON": {
+                    "source": "chain_ledger",
+                    "source_algorithm": "setInferenceParameters_docker",
+                    "key": "jsonObject",
+                    "occurrence": "first"
+                }
+            }
+        },
+        {
+            "algorithm": "outputImageToBrowser",
+            "parameters": {
+                "image_data_object": {
+                    "source": "chain_ledger",
+                    "source_algorithm": "loadandRunInference",
+                    "key": "image_data_obj",
+                    "occurrence": "first"
+                }
+            }
+        }
     ]
 }

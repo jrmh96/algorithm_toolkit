@@ -22,7 +22,7 @@ The -p 5000:5000 will expose port 5000 to the host machine.
 Now go to a web browser on the host machine and type localhost:5000, you should see the atk running locally.
 
 The starter docker project comes with some example chains. The example video as well as the pre-trained config files are all under myproject/assets/data, 
-you can use the included chain called inferenceparammethod to run a simple chain
+you can use the included chain called docker_demo to run a simple chain
 that outputs results to the browser with static twitter data.
 
 To configure your own twitter api keys:
