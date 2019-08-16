@@ -21,14 +21,21 @@ The -p 5000:5000 will expose port 5000 to the host machine.
 
 Now go to a web browser on the host machine and type localhost:5000, you should see the atk running locally.
 
-Although the atk is running, we still need to configure the information to call the twitter api.
-According to https://developer.twitter.com/en/docs/tweets/search/quick-start/premium-30-day
-we need to know: the twitter dev environment label, the consumer api key, and the consumer api secret.
+The starter docker project comes with some example chains. The example video as well as the pre-trained config files are all under myproject/assets/data, 
+you can use the included chain called inferenceparammethod to run a simple chain
+that outputs results to the browser with static twitter data.
 
-While the atk_twitter_deploy:master container is running, open a new bash shell and run:
+To configure your own twitter api keys:
+
+To ping the search endpoint we need to know: the twitter dev environment label, the consumer api key, and the consumer api secret.
+
+While the atk_twitter_deploy:master container is running, open a new bash shell and in any folder run:
 docker ps
 and observe the container id of the atk container. Now run
-docker exec -it [ID] /bin/bash, replacing ID with the container ID. This will open an interactive bash shell within the container,
+
+docker exec -it [ID] /bin/bash 
+
+replacing ID with the container ID. This will open an interactive bash shell within the container,
 which will allow us to update the necessary components.
 Within this bash shell, navigate to the /atk_project folder and run
 
@@ -36,7 +43,6 @@ echo "TWITTER_ENV_LABEL=\"[...]\"" >> .env
 echo "TWITTER_CONSUMER_API_KEY=\"[...]\"" >> .env
 echo "TWITTER_CONSUMER_API_SECRET\"[...]\"" >> .env
 
-replacing [...] with your twitter developer environment label, app consumer api key, and app consumer api secret respectively.
+replacing [...] with your twitter developer environment label, app consumer api key, and app consumer api secret respectively. You can also find the ATK api key under ATK_API_KEY in the .env file
 
-The project comes with some example chains and an input video as a demo. You can use the included chain called inferenceparammethod to run a simple chain
-that outputs results to the browser with static twitter data. You must set up your own twitter keys in the .env file for running fetch from the twitter api.
+
