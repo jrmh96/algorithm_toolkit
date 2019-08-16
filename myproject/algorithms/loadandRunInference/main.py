@@ -18,7 +18,8 @@ class Main(Algorithm):
             cfgpath = paramJsonObj["cfg_file_path"]
             weightspath = paramJsonObj['weights_file_path']
             dataPath = paramJsonObj['data_cfg_path']
-            file_path = paramJsonObj['file_path']
+            #file_path = paramJsonObj['file_path']
+            file_path = 'assets/raptorsParade.mp4' # hardcoded for docker demo
             output_path = paramJsonObj['output_path'] if 'output_path' in paramJsonObj else 'output'
             fourcc = paramJsonObj['fourcc'] if 'fourcc' in paramJsonObj else 'H264'
             img_size = paramJsonObj['img_size']
