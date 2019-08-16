@@ -4,7 +4,8 @@ MAINTAINER jrmh96@gmail.com
 # System packages
 RUN apt-get update \
   && apt-get install -y curl bzip2 \
-  && apt-get install -y git
+  && apt-get install -y git \
+  && apt-get install -y wget
 
 # switch to bash shell
 SHELL ["/bin/bash", "-c"]

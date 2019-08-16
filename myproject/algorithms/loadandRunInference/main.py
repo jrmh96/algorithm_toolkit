@@ -33,13 +33,20 @@ class Main(Algorithm):
             #save_images = paramJsonObj['save_images']
             save_txt = False
             save_images = False
-            includetwittergraph = paramJsonObj['twitter']
+            #includetwittergraph = paramJsonObj['twitter']
+            includetwittergraph = True
             twitterObj = {}
             twitterKeys = ['fromDate', 'toDate', 'lon', 'lat']
-
+            twitterQuery = {
+                'fromDate': '201906171300',
+                'toDate': '201906171820',
+                'lon': -79.384753,
+                'lat': 43.647595
+            }
             for i in twitterKeys:
                 if i in paramJsonObj:
-                    twitterObj[i] = paramJsonObj[i]
+                    #twitterObj[i] = paramJsonObj[i]
+                    twitterObj[i] = twitterQuery[i]
 
             class_of_interest = paramJsonObj['class_of_interest'] # some image of interest to track
 
