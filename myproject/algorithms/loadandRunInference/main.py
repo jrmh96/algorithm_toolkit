@@ -12,6 +12,10 @@ class Main(Algorithm):
         cl = self.cl  # type: AlgorithmChain.ChainLedger
         params = self.params  # type: dict
         # Add your algorithm code here
+
+        # For purpose of docker demo, a lot of stuff is hard-coded right now:
+        # cfgpath, weightspath, dataPath, filepath, includeTwittergraph, save_txt, save_images
+        # you can uncomment these and use the inferenceparammethod chain to run it normally
         try:
             paramJsonObj = params['parametersJSON']
             print(paramJsonObj)
