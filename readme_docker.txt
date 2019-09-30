@@ -21,21 +21,15 @@ The -p 5000:5000 will expose port 5000 to the host machine.
 
 Now go to a web browser on the host machine and type localhost:5000, you should see the atk running locally.
 
-The starter docker project comes with some example chains. The example video as well as the pre-trained config files are all under myproject/assets/data, 
-you can use the included chain called docker_demo to run a simple chain
-that outputs results to the browser with static twitter data.
+Although the atk is running, we still need to configure the information to call the twitter api.
+According to https://developer.twitter.com/en/docs/tweets/search/quick-start/premium-30-day
+we need to know: the twitter dev environment label, the consumer api key, and the consumer api secret.
+We will also need to include the demo video inside the docker container.
 
-To configure your own twitter api keys:
-
-To ping the search endpoint we need to know: the twitter dev environment label, the consumer api key, and the consumer api secret.
-
-While the atk_twitter_deploy:master container is running, open a new bash shell and in any folder run:
+While the atk_twitter_deploy:master container is running, open a new bash shell and run:
 docker ps
 and observe the container id of the atk container. Now run
-
-docker exec -it [ID] /bin/bash 
-
-replacing ID with the container ID. This will open an interactive bash shell within the container,
+docker exec -it [ID] /bin/bash, replacing ID with the container ID. This will open an interactive bash shell within the container,
 which will allow us to update the necessary components.
 Within this bash shell, navigate to the /atk_project folder and run
 
@@ -43,6 +37,23 @@ echo "TWITTER_ENV_LABEL=\"[...]\"" >> .env
 echo "TWITTER_CONSUMER_API_KEY=\"[...]\"" >> .env
 echo "TWITTER_CONSUMER_API_SECRET\"[...]\"" >> .env
 
-replacing [...] with your twitter developer environment label, app consumer api key, and app consumer api secret respectively. You can also find the ATK api key under ATK_API_KEY in the .env file
+replacing [...] with your twitter developer environment label, app consumer api key, and app consumer api secret respectively.
 
+To get the video, download the mp4 of the parade for the Toronto Raptors from this source: https://imgur.com/gallery/edMxDX0,
+then run:
 
+docker cp [local path to mp4] [ID]:/atk_project/assets/data/raptorsParade.mp4
+
+from a different bash shell. Where ID is the container id observed earlier from docker ps. This will copy the raptors parade mp4 for use in the docker container. Be sure to name it exactly as above, the demo has this path hardcoded.
+
+Finally, run:
+alg run --host=0.0.0.0
+
+from the docker shell and it will run.
+
+You should now be able to set up an algorithm chain using the object detection functionality. The project comes with several example chains.
+
+Running video detection chain:
+Run the chain docker_demo, the only step you will need to set up is the first method. In Set Inference Parameters, enter all inference
+parameters. Enter true for twitter graph and object detection graph to view graphs at the end. You will also need to provide the path to
+the video file.
