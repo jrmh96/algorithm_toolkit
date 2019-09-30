@@ -8,7 +8,7 @@ RUN apt-get update \
   && apt-get install -y wget \
   && apt-get install -y libsm6 libxext6 libxrender-dev \
   && pip install opencv-python \
-  && pip install torch \
+  && pip install torch
 
 # switch to bash shell
 SHELL ["/bin/bash", "-c"]
