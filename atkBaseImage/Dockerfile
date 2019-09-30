@@ -5,7 +5,10 @@ MAINTAINER jrmh96@gmail.com
 RUN apt-get update \
   && apt-get install -y curl bzip2 \
   && apt-get install -y git \
-  && apt-get install -y wget
+  && apt-get install -y wget \
+  && apt-get install -y libsm6 libxext6 libxrender-dev \
+  && pip install opencv-python \
+  && pip install torch \
 
 # switch to bash shell
 SHELL ["/bin/bash", "-c"]
@@ -21,7 +24,7 @@ ENV PATH="/opt/miniconda3/bin:${PATH}"
 COPY environ.yml /bin/
 RUN conda env update -f /bin/environ.yml -n base
 
-# Install revised atk project
+# Install newest atk project
 RUN pip install git+https://github.com/jrmh96/algorithm_toolkit.git@staticFetch
 
 # clean up
