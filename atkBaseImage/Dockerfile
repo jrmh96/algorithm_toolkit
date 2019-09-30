@@ -6,9 +6,7 @@ RUN apt-get update \
   && apt-get install -y curl bzip2 \
   && apt-get install -y git \
   && apt-get install -y wget \
-  && apt-get install -y libsm6 libxext6 libxrender-dev \
-  && pip install opencv-python \
-  && pip install torch
+  && apt-get install -y libsm6 libxext6 libxrender-dev
 
 # switch to bash shell
 SHELL ["/bin/bash", "-c"]
@@ -26,6 +24,10 @@ RUN conda env update -f /bin/environ.yml -n base
 
 # Install newest atk project
 RUN pip install git+https://github.com/jrmh96/algorithm_toolkit.git@staticFetch
+
+RUN pip install torch
+
+RUN pip install opencv-python
 
 # clean up
 RUN rm Miniconda3-latest-Linux-x86_64.sh
